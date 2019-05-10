@@ -1,0 +1,18 @@
+<import src="../tpls/category/category-tpl.wxml" />
+<view class='container category-container'>
+  <view class='category-box'>
+    <view class='left-box'>
+      <block wx:for="{{categoryType}}">
+        <view class="menu-item {{currentTap==index?'selected':''}}" data-index='{{index}}' bindtap='onCategoryTap'>
+          {{item.name}}
+        </view>
+      </block>
+    </view>
+    <view class='right-box'>
+      <view class='foods-type-box'>
+      <!-- 封装性无处不在,不仅限于js,ss,ml都可以,高复用性写代码简直不能再爽 -->
+        <template is="categorydetail" data="{{categoryInfo:categoryProducts}}"></template>
+      </view>
+    </view>
+  </view>
+</view>
